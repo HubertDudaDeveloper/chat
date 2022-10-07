@@ -5,7 +5,12 @@
   </nav>
   <router-view/>
 </template>
+<script setup lang="ts">
+import { ref, reactive } from 'vue'
 
+const name = ref('InputMessage')
+
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

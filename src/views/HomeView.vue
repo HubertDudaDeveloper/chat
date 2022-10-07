@@ -1,18 +1,25 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <InputMessage />
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component'
-import HelloWorld from '@/components/HelloWorld.vue' // @ is an alias to /src
+<script setup lang="ts">
+import { ref, reactive, onMounted } from 'vue'
+import InputMessage from '../components/InputMessage.vue'
+import { collection, query, where, onSnapshot, addDoc } from 'firebase/firestore'
+import { db } from '@/firebase/index.js'
 
-@Options({
-  components: {
-    HelloWorld
-  }
+const name = ref('Home')
+
+onMounted(() => {
+  onSnapshot(collection(db, 'chat'), (querySnapshot) => {
+    const messages = []
+    querySnapshot.forEach((doc) => {
+      messages.push(doc.data().message)
+    })
+    console.log('Current cities in CA: ', messages.join(', '))
+  })
 })
-export default class HomeView extends Vue {}
+
 </script>
