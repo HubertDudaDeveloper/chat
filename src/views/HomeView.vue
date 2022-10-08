@@ -1,25 +1,32 @@
 <template>
   <div class="home">
-    <InputMessage />
+    <MessageTemplate :messages="messages" />
+    <InputMessage :id="test"/>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import InputMessage from '../components/InputMessage.vue'
-import { collection, query, where, onSnapshot, addDoc } from 'firebase/firestore'
+import MessageTemplate from '@/components/MessageTemplate.vue'
+import { collection, query, where, onSnapshot, addDoc, orderBy } from 'firebase/firestore'
 import { db } from '@/firebase/index.js'
 
 const name = ref('Home')
-
+const messages = ref({})
+const test = ref(Object.keys(messages.value).length)
 onMounted(() => {
-  onSnapshot(collection(db, 'chat'), (querySnapshot) => {
-    const messages = []
+  const q = query(collection(db, 'chat'), orderBy('date'))
+  onSnapshot(q, (querySnapshot) => {
+    let id = 0
     querySnapshot.forEach((doc) => {
-      messages.push(doc.data().message)
+      messages.value[id] = Object.assign(doc.data())
+      id++
     })
-    console.log('Current cities in CA: ', messages.join(', '))
   })
 })
 
 </script>
+<style lang="scss">
+
+</style>
