@@ -10,7 +10,6 @@
 </template>
 <script setup lang="ts">
 import { ref, defineProps, reactive } from 'vue'
-import debounce from 'lodash/debounce'
 
 const name = 'MessageTemplate'
 const props = defineProps({

@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <button @click="handleSignOut()" v-if="isLoggedIn">Wyloguj się</button>
     <MessageTemplate :messages="messages" />
     <InputMessage :id="test"/>
   </div>
@@ -9,13 +10,27 @@
 import { ref, reactive, onMounted } from 'vue'
 import InputMessage from '../components/InputMessage.vue'
 import MessageTemplate from '@/components/MessageTemplate.vue'
-import { collection, query, where, onSnapshot, addDoc, orderBy } from 'firebase/firestore'
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { db } from '@/firebase/index.js'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const name = ref('Home')
 const messages = ref({})
 const test = ref(Object.keys(messages.value).length)
+const isLoggedIn = ref(false)
+
+let auth
 onMounted(() => {
+  auth = getAuth()
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true
+    } else {
+      isLoggedIn.value = false
+    }
+  })
   const q = query(collection(db, 'chat'), orderBy('date'))
   onSnapshot(q, (querySnapshot) => {
     let id = 0
@@ -25,6 +40,12 @@ onMounted(() => {
     })
   })
 })
+
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+    router.push('/signin')
+  })
+}
 
 </script>
 <style lang="scss">
