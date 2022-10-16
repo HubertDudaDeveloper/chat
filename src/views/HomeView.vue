@@ -27,8 +27,10 @@ onMounted(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       isLoggedIn.value = true
+      console.log(getAuth().currentUser)
     } else {
       isLoggedIn.value = false
+      router.push('/signin')
     }
   })
   const q = query(collection(db, 'chat'), orderBy('date'))
