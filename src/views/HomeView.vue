@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <button @click="handleSignOut()" v-if="isLoggedIn">Wyloguj się</button>
+    <button @click="handleSignOut()" style="position:fixed;" v-if="isLoggedIn">Wyloguj się</button>
     <MessageTemplate :messages="messages" />
     <InputMessage :id="test"/>
   </div>
@@ -27,7 +27,6 @@ onMounted(() => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       isLoggedIn.value = true
-      console.log(getAuth().currentUser)
     } else {
       isLoggedIn.value = false
       router.push('/signin')
@@ -51,5 +50,7 @@ const handleSignOut = () => {
 
 </script>
 <style lang="scss">
-
+.home {
+  background-color:  rgb(28, 118, 148);
+}
 </style>
