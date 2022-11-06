@@ -26,7 +26,7 @@ const date = () => {
 }
 
 const sendData = (now, getTime) => {
-  addDoc(collection(db, 'chat'), {
+  addDoc(collection(db, (getAuth().currentUser.email + 'email2')), {
     message: messagea.value,
     userId: getAuth().currentUser.email,
     nickName: getAuth().currentUser.displayName,
