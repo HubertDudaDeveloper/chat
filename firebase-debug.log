@@ -1,0 +1,73 @@
+[debug] [2022-11-09T15:27:58.201Z] ----------------------------------------------------------------------
+[debug] [2022-11-09T15:27:58.203Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hubert\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js --project=chat emulators:start
+[debug] [2022-11-09T15:27:58.203Z] CLI Version:   11.10.0
+[debug] [2022-11-09T15:27:58.203Z] Platform:      win32
+[debug] [2022-11-09T15:27:58.203Z] Node Version:  v14.19.0
+[debug] [2022-11-09T15:27:58.204Z] Time:          Wed Nov 09 2022 16:27:58 GMT+0100 (czas środkowoeuropejski standardowy)
+[debug] [2022-11-09T15:27:58.204Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-09T15:27:58.285Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-09T15:27:58.285Z] > authorizing via signed-in user (hubertdudadeveloper@gmail.com)
+[debug] [2022-11-09T15:27:58.376Z] java version "18.0.1.1" 2022-04-22
+Java(TM) SE Runtime Environment (build 18.0.1.1+2-6)
+
+[debug] [2022-11-09T15:27:58.377Z] Java HotSpot(TM) 64-Bit Server VM (build 18.0.1.1+2-6, mixed mode, sharing)
+
+[debug] [2022-11-09T15:27:58.397Z] Parsed Java major version: 18
+[info] i  emulators: Starting emulators: auth, firestore, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore, hosting"}}
+[debug] [2022-11-09T15:27:58.410Z] [hub] writing locator at C:\Users\hubert\AppData\Local\Temp\hub-chat.json
+[info] i  firestore: downloading cloud-firestore-emulator-v1.14.4.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.14.4.jar..."}}
+[debug] [2022-11-09T15:27:58.430Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.14.4.jar 
+[debug] [2022-11-09T15:27:58.947Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.14.4.jar 200
+[debug] [2022-11-09T15:27:58.948Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.14.4.jar [stream]
+[debug] [2022-11-09T15:28:02.815Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-11-09T15:28:02.815Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-11-09T15:28:02.815Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\hubert\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.14.4.jar","--host","localhost","--port",8081,"--rules","C:\\xampp\\htdocs\\GitHub\\chat\\firestore.rules"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\hubert\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.14.4.jar\",\"--host\",\"localhost\",\"--port\",8081,\"--rules\",\"C:\\\\xampp\\\\htdocs\\\\GitHub\\\\chat\\\\firestore.rules\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2022-11-09T15:28:11.732Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/chat/sites 
+[debug] [2022-11-09T15:28:13.065Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/chat/sites 404
+[debug] [2022-11-09T15:28:13.065Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/chat/sites {"error":{"code":404,"message":"project `chat` doesn't exist","status":"NOT_FOUND"}}
+[debug] [2022-11-09T15:28:13.066Z] Failed to list hosting sites
+[debug] HTTP Error: 404, project `chat` doesn't exist
+[debug] [2022-11-09T15:28:13.066Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/chat/webApps/-/config [none]
+[debug] [2022-11-09T15:28:13.875Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/chat/webApps/-/config 403
+[debug] [2022-11-09T15:28:13.875Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/chat/webApps/-/config {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-11-09T15:28:13.875Z] fetchWebSetup error: FirebaseError: HTTP Error: 403, The caller does not have permission
+[warn] !  hosting: Authentication error when trying to fetch your current web app configuration, have you run firebase login? 
+[warn] !  hosting: Could not fetch web app configuration and there is no cached configuration on this machine. Check your internet connection and make sure you are authenticated. To continue, you must call firebase.initializeApp({...}) in your code before using Firebase. 
+[info] i  hosting: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  ui: downloading ui-v1.9.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.9.0.zip..."}}
+[debug] [2022-11-09T15:28:13.915Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.9.0.zip 
+[debug] [2022-11-09T15:28:14.199Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.9.0.zip 200
+[debug] [2022-11-09T15:28:14.200Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.9.0.zip [stream]
+[debug] [2022-11-09T15:28:15.564Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-11-09T15:28:15.564Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-11-09T15:28:15.565Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\hubert\\.cache\\firebase\\emulators\\ui-v1.9.0\\server\\server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\hubert\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.9.0\\\\server\\\\server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-11-09T15:28:15.702Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8081 │ http://localhost:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ localhost:5000 │ n/a                             │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[info] i  hosting: 127.0.0.1 - - [09/Nov/2022:15:30:46 +0000] "GET / HTTP/1.1" 200 611 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [09/Nov/2022:15:30:46 +0000] \"GET / HTTP/1.1\" 200 611 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [09/Nov/2022:15:30:47 +0000] "GET /%3C%=%20BASE_URL%20%%3Efavicon.ico HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [09/Nov/2022:15:30:47 +0000] \"GET /%3C%=%20BASE_URL%20%%3Efavicon.ico HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [09/Nov/2022:15:32:34 +0000] "GET / HTTP/1.1" 200 611 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [09/Nov/2022:15:32:34 +0000] \"GET / HTTP/1.1\" 200 611 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
+[info] i  hosting: 127.0.0.1 - - [09/Nov/2022:15:32:34 +0000] "GET /%3C%=%20BASE_URL%20%%3Efavicon.ico HTTP/1.1" 500 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"127.0.0.1 - - [09/Nov/2022:15:32:34 +0000] \"GET /%3C%=%20BASE_URL%20%%3Efavicon.ico HTTP/1.1\" 500 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36\""}}
