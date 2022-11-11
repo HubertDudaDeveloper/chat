@@ -9,12 +9,10 @@ import { ref, reactive, defineProps } from 'vue'
 import { getAuth } from 'firebase/auth'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '@/firebase'
-
 const time = new Date()
 const name = ref('InputMessage')
 const messagea = ref('')
 const chatID = ref('')
-
 const date = () => {
   const time = new Date()
   const day = String(time.getDate()).padStart(2, '0')
@@ -24,9 +22,8 @@ const date = () => {
   const now = day + '-' + month + '-' + year + ' ' + hour
   return now
 }
-
 const sendData = (now, getTime) => {
-  addDoc(collection(db, (getAuth().currentUser.email + 'email2')), {
+  addDoc(collection(db, 'chat'), {
     message: messagea.value,
     userId: getAuth().currentUser.email,
     nickName: getAuth().currentUser.displayName,

@@ -14,13 +14,11 @@ import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { db } from '@/firebase/index.js'
 import { useRouter } from 'vue-router'
-
 const router = useRouter()
 const name = ref('Home')
 const messages = ref({})
 const test = ref(Object.keys(messages.value).length)
 const isLoggedIn = ref(false)
-
 let auth
 onMounted(() => {
   auth = getAuth()
@@ -40,30 +38,12 @@ onMounted(() => {
       id++
     })
   })
-  const listAllUsers = (nextPageToken) => {
-    getAuth()
-      .listUsers(1000, nextPageToken)
-      .then((listUsersResult) => {
-        listUsersResult.users.forEach((userRecord) => {
-          console.log('user', userRecord.toJSON())
-        })
-        if (listUsersResult.pageToken) {
-          listAllUsers(listUsersResult.pageToken)
-        }
-      })
-      .catch((error) => {
-        console.log('Error listing users:', error)
-      })
-  }
-  listAllUsers()
 })
-
 const handleSignOut = () => {
   signOut(auth).then(() => {
     router.push('/signin')
   })
 }
-
 </script>
 <style lang="scss">
 .home {
